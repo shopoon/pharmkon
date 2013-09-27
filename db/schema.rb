@@ -13,6 +13,21 @@
 
 ActiveRecord::Schema.define(:version => 20130927161514) do
 
+  create_table "applies", :force => true do |t|
+    t.string "student_id"
+    t.string "first"
+    t.string "second"
+    t.string "third"
+    t.string "forth"
+  end
+
+  create_table "labolatories", :force => true do |t|
+    t.string  "name"
+    t.integer "yaku",  :default => 0
+    t.integer "yakka", :default => 0
+    t.integer "total", :default => 0
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
