@@ -14,11 +14,10 @@
 ActiveRecord::Schema.define(:version => 20130927161514) do
 
   create_table "applies", :force => true do |t|
-    t.string "student_id"
-    t.string "first"
-    t.string "second"
-    t.string "third"
-    t.string "forth"
+    t.string  "student_id"
+    t.integer "first"
+    t.integer "second"
+    t.integer "third"
   end
 
   create_table "labolatories", :force => true do |t|
@@ -35,12 +34,14 @@ ActiveRecord::Schema.define(:version => 20130927161514) do
     t.datetime "remember_created_at"
     t.string   "name"
     t.string   "student_id"
-    t.string   "department"
+    t.integer  "department"
     t.integer  "rank"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end
 
+  add_index "users", ["name"], :name => "index_users_on_name", :unique => true
+  add_index "users", ["rank"], :name => "index_users_on_rank", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["student_id"], :name => "index_users_on_student_id", :unique => true
 

@@ -1,0 +1,15 @@
+<table class="simple-table">
+  <% @groups.each do |_, group| %>
+    <tr>
+      <td><%= group.labo.name %></td>
+      <% group.users.each do |user| %>
+        <td><%= user.name %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<%= content_for :sidebar do %>
+  <li><%= link_to "研究室一覧", action: :index %></li>
+  <li><%= link_to "希望調査", action: :edit %></li>
+<% end %>

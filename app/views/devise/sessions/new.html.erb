@@ -2,12 +2,12 @@
 <h2>ログイン</h2>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label "学生証番号" %><br />
+  <div><%= f.label "学生証番号" %>
     <%= f.text_field :student_id, :autofocus => true %>
     <span class="help-inline" style="font-size:small; color:gray;">下4桁を入力してください</span>
   </div>
 
-  <div><%= f.label "パスワード" %><br />
+  <div><%= f.label "パスワード" %>
   <%= f.password_field :password %></div>
 
   <% if devise_mapping.rememberable? -%>

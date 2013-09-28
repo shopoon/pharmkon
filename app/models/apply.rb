@@ -1,8 +1,5 @@
 class Apply < ActiveRecord::Base
 
-  attr_reader :student_id
-  attr_accessor :first, :second, :third, :forth
-
   def first_labo
     return Labolatory.find(self.first)
   end
@@ -13,9 +10,5 @@ class Apply < ActiveRecord::Base
 
   def third_labo
     return Labolatory.find(self.third)
-  end
-
-  def forth_labo
-    return Labolatory.find(self.forth)
   end
 end

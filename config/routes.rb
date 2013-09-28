@@ -1,7 +1,14 @@
 PharmkonR::Application.routes.draw do
   devise_for :users
 
-  root :to => "top#index"
+  root :to => "assign#index"
+
+  resources :assign, only: [:index] do
+    collection do
+      get :edit
+      post :update
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

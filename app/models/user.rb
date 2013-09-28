@@ -8,7 +8,11 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :student_id, :password, :password_confirmation, :remember_me, :department, :email
   # attr_accessible :title, :body
-  #
+
+  def apply
+    return Apply.find_by_student_id(self.student_id)
+  end
+
   def email_required?
     false
   end
