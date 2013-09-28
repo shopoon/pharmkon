@@ -1,9 +1,17 @@
-<table class="simple-table">
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>研究室</th>
+      <th>１人目</th>
+      <th>２人目</th>
+      <th>３人目</th>
+      <th>４人目</th>
+  </thead>
   <% @groups.each do |_, group| %>
     <tr>
       <td><%= group.labo.name %></td>
-      <% group.users.each do |user| %>
-        <td><%= user.name %></td>
+      <% (0..3).each do |n| %>
+        <td><%= group.users[n].try(:name) rescue nil %></td>
       <% end %>
     </tr>
   <% end %>
