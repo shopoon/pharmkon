@@ -1,0 +1,3 @@
+class AssignController < ApplicationController
+
+end

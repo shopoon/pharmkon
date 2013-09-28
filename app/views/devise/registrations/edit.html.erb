@@ -12,7 +12,7 @@
   <%= f.text_field :name %></div>
 
   <div><%= f.label "学科" %>
-  <%= f.select :department, options_for_select({"薬科学科" => "yakka", "薬学科" => "yaku"}) %></div>
+  <%= f.select :department, options_for_select(User::DEPARTMENT) %></div>
 
   <div><%= f.label "新しいパスワード" %>
   <%= f.password_field :password, :autocomplete => "off" %></div>
