@@ -10,6 +10,5 @@
 </table>
 
 <%= content_for :sidebar do %>
-  <li><%= link_to "研究室一覧", action: :index %></li>
-  <li><%= link_to "希望調査", action: :edit %></li>
+  <%= render partial: "sidebar" %>
 <% end %>

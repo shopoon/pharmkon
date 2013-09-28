@@ -6,8 +6,11 @@ class User < ActiveRecord::Base
          :rememberable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :student_id, :password, :password_confirmation, :remember_me, :department, :email
+  attr_accessible :name, :student_id, :password, :password_confirmation, :remember_me, :department, :email, :rank
   # attr_accessible :title, :body
+  #
+  validates :student_id, length: { is: 4 }
+  validates :rank, presence: true
 
   def apply
     return Apply.find_by_student_id(self.student_id)
