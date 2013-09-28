@@ -1,24 +1,24 @@
-<h2>Sign up</h2>
+<h2>アカウント登録</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :student_id %><br />
-  <%= f.text_field :student_id, :autofocus => true %></div>
+  <div><%= f.label "学生証番号" %>
+  <%= f.text_field :student_id, :autofocus => true %>
+  <span class="help-inline" style="font-size: small; color: gray;">下4桁を入力してください</span>
+  </div>
 
-  <div><%= f.label :name %><br />
+  <div><%= f.label "名前" %>
   <%= f.text_field :name %></div>
 
-  <div><%= f.label :department %><br />
+  <div><%= f.label "学科" %>
   <%= f.select :department, options_for_select({"薬科学科" => "yakka", "薬学科" => "yaku"}) %></div>
 
-  <div><%= f.label :password %><br />
+  <div><%= f.label "新しいパスワード" %>
   <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
+  <div><%= f.label "パスワード確認" %>
   <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+<div><%= f.submit "登録", :class => "btn btn-primary" %></div>
 <% end %>
-
-<%= render "devise/shared/links" %>
