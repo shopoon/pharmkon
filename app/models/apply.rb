@@ -1,5 +1,7 @@
 class Apply < ActiveRecord::Base
 
+  attr_accessible :first, :second, :third
+
   def first_labo
     return Labolatory.find(self.first)
   end

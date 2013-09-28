@@ -1,0 +1,38 @@
+<%= content_for :sidebar do %>
+  <%= render partial: "sidebar" %>
+<% end %>
+
+<%= form_tag({action: :update}, {method: :post, class: "form-horizontal"}) do %>
+  <fieldset>
+    <div id="legend">
+      <legend class="">希望調査</legend>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="first">第1希望</label>
+      <div class="controls">
+        <%= select_tag 'apply[first]', options_for_select(@labolatories, current_user.apply.first) %>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <label class="control-label" for="first">第2希望</label>
+      <div class="controls">
+        <%= select_tag 'apply[second]', options_for_select(@labolatories, current_user.apply.second) %>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <label class="control-label" for="first">第3希望</label>
+      <div class="controls">
+        <%= select_tag 'apply[third]', options_for_select(@labolatories, current_user.apply.third) %>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <%= submit_tag "更新", :class => "btn btn-success" %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>
