@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   validates :rank, presence: true
 
   def apply
-    return Apply.find_by_student_id(self.student_id)
+    return Apply.find_or_create_by_student_id(self.student_id)
   end
 
   def email_required?

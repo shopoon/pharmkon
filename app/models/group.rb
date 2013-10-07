@@ -57,14 +57,15 @@ class Group
 
   def self.create
     users = User.order(:rank).all
+    pp users
     ['first', 'second', 'third'].each do |order|
       users.each do |user|
         labo_id = user.apply.__send__(order)
+        next if labo_id.nil?
         group = @groups[labo_id]
         group.add(user)
       end
     end
-    pp @groups
   end
 
   def check(user)
