@@ -9,7 +9,7 @@
   </thead>
   <% @groups.each do |_, group| %>
     <tr>
-      <td><%= group.labo.name %></td>
+      <td><%= link_to group.labo.name, assign_path(group.labo.id) %></td>
       <% (0..3).each do |n| %>
         <td><%= group.users[n].try(:name) rescue nil %></td>
       <% end %>

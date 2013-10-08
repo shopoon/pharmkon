@@ -1,0 +1,60 @@
+<section class="span6">
+  <% if current_user.id == @user.id %>
+  <h4 class="muted">研究室の希望調査は<%= link_to "こちら", controller: "/assign", action: "edit" %></h4>
+<% end %> 
+<table class="table table-striped table-hover table-bordered">
+  <thead></thead>
+  <tr>
+    <th>名前</th>
+    <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <th>学科</th>
+    <td><%= @user.department_name %></td>
+  </tr>
+  <tr>
+    <th>順位</th>
+    <td><%= @user.rank %>位</td>
+  </tr>
+  <tr>
+    <th>合計点順位</th>
+    <td><%= @user.total_rank %>位</td>
+  </tr>
+  <tr>
+    <th>平均点順位</th>
+    <td><%= @user.average_rank %>位</td>
+  </tr>
+  <tr>
+    <th>合計点</th>
+    <td><%= @user.total %></td>
+  </tr>
+  <tr>
+    <th>平均点</th>
+    <td><%= @user.average %></td>
+  </tr>
+  <tr>
+    <th>取得コマ数</th>
+    <td><%= @user.count %></td>
+  </tr>
+  <tr>
+    <th>第一希望</th>
+    <td><%= @user.apply.first.nil? ? "未記入" : @user.apply.first_labo.name %></td>
+  </tr>
+  <tr>
+    <th>第二希望</th>
+    <td><%= @user.apply.second.nil? ? "未記入" : @user.apply.second_labo.name %></td>
+  </tr>
+  <tr>
+    <th>第三希望</th>
+    <td><%= @user.apply.third.nil? ? "未記入" : @user.apply.third_labo.name %></td>
+  </tr>
+</table>
+
+<% if @user.id == current_user.id %>
+  <%= link_to "編集", edit_user_registration_path, :class => "btn btn-primary" %>
+<% end %>
+</section>
+
+<%= content_for :sidebar do %>
+  <%= render partial: "sidebar" %>
+<% end %>

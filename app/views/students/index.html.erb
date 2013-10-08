@@ -1,0 +1,27 @@
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>順位</th>
+      <th>名前</th>
+      <th>合計点</th>
+      <th>平均点</th>
+      <th>学科</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.rank %></td>
+        <td><%= link_to user.name, student_path(user.id) %></td>
+        <td><%= user.total %></td>
+        <td><%= user.average %></td>
+        <td><%= user.department_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= content_for :sidebar do %>
+  <%= render partial: "sidebar" %>
+<% end %>

@@ -28,14 +28,14 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string  :name
       t.string  :student_id
       t.integer :department
-      t.integer :rank
+      t.integer :total
+      t.integer :count
 
       t.timestamps
     end
 
     add_index :users, :student_id,           :unique => true
     add_index :users, :name,                 :unique => true
-    add_index :users, :rank,                 :unique => true
     add_index :users, :reset_password_token, :unique => true
     # add_index :users, :confirmation_token,   :unique => true
     # add_index :users, :unlock_token,         :unique => true

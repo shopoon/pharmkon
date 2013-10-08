@@ -35,13 +35,13 @@ ActiveRecord::Schema.define(:version => 20130927161514) do
     t.string   "name"
     t.string   "student_id"
     t.integer  "department"
-    t.integer  "rank"
+    t.integer  "total"
+    t.integer  "count"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
   end
 
   add_index "users", ["name"], :name => "index_users_on_name", :unique => true
-  add_index "users", ["rank"], :name => "index_users_on_rank", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["student_id"], :name => "index_users_on_student_id", :unique => true
 

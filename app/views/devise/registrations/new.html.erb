@@ -14,8 +14,11 @@
   <div><%= f.label "学科" %>
   <%= f.select :department, options_for_select(User::DEPARTMENT) %></div>
 
-  <div><%= f.label "順位" %>
-  <%= f.number_field :rank, :min => 1, :max => 99 %></div>
+  <div><%= f.label "合計点" %>
+  <%= f.number_field :total, :min => 0, :max => 9999 %></div>
+
+  <div><%= f.label "取得コマ数" %>
+  <%= f.number_field :count, :min => 0, :max => 40 %></div>
 
   <div><%= f.label "パスワード" %>
   <%= f.password_field :password %></div>

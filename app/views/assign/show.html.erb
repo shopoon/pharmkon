@@ -1,0 +1,26 @@
+<% methods = ["first", "second", "third"] %>
+<% (1..3).each do |n| %>
+  <h3>第<%= n %>希望の人</h3>
+  <table class="table-striped table table-hover table-bordered">
+    <thead>
+      <th>名前</th>
+      <th>順位</th>
+      <th>学科</th>
+    </thead>
+    <% users = @users.select{|user| user.apply.__send__(methods[n-1]) == @labolatory.id } %>
+    <% users.each do |user| %>
+      <% color = @group.users.include?(user) ? "success" : "warning" %>
+    <tr class="<%= color %>">
+      <td><%= link_to user.name, student_path(user.id) %></td>
+      <td><%= user.rank %>位</td>
+      <td><%= user.department_name %></td>
+    </tr>
+  <% end %>
+  </table>
+<% end %>
+
+
+
+<%= content_for :sidebar do %>
+  <%= render partial: "sidebar" %>
+<% end %>

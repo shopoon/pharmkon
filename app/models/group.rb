@@ -56,8 +56,7 @@ class Group
   end
 
   def self.create
-    users = User.order(:rank).all
-    pp users
+    users = User.users_orderd_by_rank
     ['first', 'second', 'third'].each do |order|
       users.each do |user|
         labo_id = user.apply.__send__(order)
