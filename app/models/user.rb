@@ -16,9 +16,9 @@ class User < ActiveRecord::Base
       a_ra = (a.total_rank + a.average_rank)/2.to_f
       b_ra = (b.total_rank + b.average_rank)/2.to_f
       if a_ra != b_ra
-        b_ra <=> a_ra
+        a_ra <=> b_ra
       else
-        b.average_rank <=> a.average_rank
+        a.average_rank <=> b.average_rank
       end
     }
   end
@@ -50,12 +50,12 @@ class User < ActiveRecord::Base
  
   def average_rank
     users_average_map = User.all.sort_by {|user| user.average }.map{|user| user.average}
-    return (users_average_map.index(self.average) + 1) rescue nil
+    return (users_average_map.reverse.index(self.average) + 1) rescue nil
   end
 
   def total_rank
     users_total_map = User.select('id, total').order('total').map{|user| user.total}
-    return (users_total_map.index(self.total) + 1) rescue nil
+    return (users_total_map.reverse.index(self.total) + 1) rescue nil
   end
 
   DEPARTMENT = {
