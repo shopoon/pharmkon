@@ -62,7 +62,7 @@ class Group
         labo_id = user.apply.__send__(order)
         next if labo_id.nil?
         group = @groups[labo_id]
-        group.add(user)
+        group.add(user) if !group.nil?
       end
     end
   end
