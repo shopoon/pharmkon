@@ -22,7 +22,7 @@
 </table>
 
 <div class="muted">
-  研究室の希望は<%= link_to "こちら", assign_path(current_user.id) %>から
+  研究室の希望は<%= link_to "こちら", :controller => :assign, :action => :edit %>から
 </div>
 
 
