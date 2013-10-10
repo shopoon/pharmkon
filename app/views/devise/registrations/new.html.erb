@@ -10,6 +10,7 @@
 
   <div><%= f.label "名前" %>
   <%= f.text_field :name %></div>
+  <span class="help-inline" style="font-size: small; color: gray;">本名で登録してください</span>
 
   <div><%= f.label "学科" %>
   <%= f.select :department, options_for_select(User::DEPARTMENT) %></div>
