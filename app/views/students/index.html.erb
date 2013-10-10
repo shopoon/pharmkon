@@ -21,6 +21,10 @@
   </tbody>
 </table>
 
+<div class="muted">
+  研究室の希望は<%= link_to "こちら", assign_path(current_user.id) %>から
+</div>
+
 
 <%= content_for :sidebar do %>
   <%= render partial: "sidebar" %>
