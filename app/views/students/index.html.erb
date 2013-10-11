@@ -6,6 +6,7 @@
       <th>合計点</th>
       <th>平均点</th>
       <th>学科</th>
+      <th>第一希望</th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +17,11 @@
         <td><%= user.total %></td>
         <td><%= user.average %></td>
         <td><%= user.department_name %></td>
+        <% if user.apply.first.nil? %>
+          <td>未記入</td>
+        <% else %>
+          <td><%= link_to user.apply.first_labo.name, assign_path(user.apply.first) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
