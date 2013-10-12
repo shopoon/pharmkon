@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   require "pp"
   protect_from_forgery
 
+  http_basic_authenticate_with :name => "name", :password => "password" if Rails.env.staging?
+
   before_filter :authenticate_user!
   before_filter :set_user
   

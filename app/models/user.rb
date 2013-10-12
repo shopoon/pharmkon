@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   #
   validates :student_id, length: { is: 4 }
+  validates :total, :presence => true
+  validates :count, :presence => true
 
   def self.users_orderd_by_rank
     users_rank_map = User.all.sort {|a, b|
