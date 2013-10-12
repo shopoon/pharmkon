@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'rails'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
+gem 'foreman'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
