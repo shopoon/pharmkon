@@ -5,6 +5,7 @@ gem 'rails'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'foreman'
+gem 'kaminari'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
