@@ -38,6 +38,6 @@ class Statistics
   end
  
   def self.yaku_count
-    @yaku_total ||= User.where(:department => User::DEPARTMENT["薬学科"]).count
+    @yaku_count ||= User.where(:department => User::DEPARTMENT["薬学科"]).count
   end
 end
