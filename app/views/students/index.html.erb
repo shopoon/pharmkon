@@ -25,6 +25,16 @@
       </tr>
     <% end %>
   </tbody>
+  <tfoot>
+    <tr>
+      <td>学部平均点</td>
+      <td><%= @average_map[:all] %></td>
+      <td>薬科学科平均点</td>
+      <td><%= @average_map[:yakka] %></td>
+      <td>薬学科平均点</td>
+      <td><%= @average_map[:yaku] %></td>
+    </tr>
+  </tfoot>
 </table>
 
 <div class="muted">
