@@ -8,7 +8,7 @@ class Statistics
   end
 
   def self.total
-    @total ||= User.all_user.inject(0){|sum, user| sum += user.average }
+    @total ||= User.all.sum(:average)
   end
 
   def self.count
@@ -26,11 +26,11 @@ class Statistics
   end
 
   def self.yakka_total
-    @yakka_total ||= User.all_user.select{|user| user.department == User::DEPARTMENT["薬科学科"]}.inject(0){|sum, user| sum += user.average }
+    @yakka_total ||= User.all.where(:department => User::DEPARTMENT["薬科学科"]).sum(:average)
   end
 
   def self.yaku_total
-    @yaku_total ||= User.all_user.select{|user| user.department == User::DEPARTMENT["薬学科"]}.inject(0){|sum, user| sum += user.average }
+    @yaku_total ||= User.all.where(:department => User::DEPARTMENT["薬学科"]).sum(:average)
   end
 
   def self.yakka_count

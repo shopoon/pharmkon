@@ -6,12 +6,13 @@ class User < ActiveRecord::Base
          :rememberable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :student_id, :password, :password_confirmation, :remember_me, :department, :email, :total, :count
+  attr_accessible :name, :student_id, :password, :password_confirmation, :remember_me, :department, :email, :total, :count, :average
   # attr_accessible :title, :body
   #
   validates :student_id, length: { is: 4 }
   validates :total, :presence => true
   validates :count, :presence => true, :numericality => {:greater_than => 1}
+  validates :average, :presence => true
 
   before_validation do
     if self.total > 0 && self.count > 0
@@ -19,6 +20,14 @@ class User < ActiveRecord::Base
     else
       self.average = 0.0
     end
+  end
+
+  after_save do
+    @users_rank_map = nil
+    @users = nil
+    @users_rank_ids = nil
+    @users_average_map = nil
+    @users_total_map = nil
   end
 
   def self.users_orderd_by_rank
@@ -35,7 +44,7 @@ class User < ActiveRecord::Base
   end
 
   def self.all_user
-    @users ||= User.all.reject {|user| user.count <= 0}
+    @users ||= User.all
   end
 
   def apply
@@ -45,10 +54,6 @@ class User < ActiveRecord::Base
   def rank
     @users_rank_ids ||= self.class.users_orderd_by_rank.map(&:id)
     return (@users_rank_ids.index(self.id) + 1) rescue nil
-  end
-
-  def average
-    return (self.total.to_f / self.count.to_f).round(2)
   end
 
   def email_required?
@@ -64,12 +69,12 @@ class User < ActiveRecord::Base
   end
  
   def average_rank
-    @users_average_map ||= self.class.all_user.sort_by {|user| user.average }.map{|user| user.average}
+    @users_average_map ||= User.all.order(:average).map{|user| user.average}
     return (@users_average_map.reverse.index(self.average) + 1) rescue nil
   end
 
   def total_rank
-    @users_total_map ||= self.class.all_user.sort_by {|user| user.total }.map{|user| user.total}
+    @users_total_map ||= User.all.order(:total).map{|user| user.total}
     return (@users_total_map.reverse.index(self.total) + 1) rescue nil
   end
 
