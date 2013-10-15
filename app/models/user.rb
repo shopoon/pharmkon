@@ -13,6 +13,14 @@ class User < ActiveRecord::Base
   validates :total, :presence => true
   validates :count, :presence => true, :numericality => {:greater_than => 1}
 
+  before_validation do
+    if self.total > 0 && self.count > 0
+      self.average = (self.total.to_f/self.count.to_f).round(2)
+    else
+      self.average = 0.0
+    end
+  end
+
   def self.users_orderd_by_rank
     @users_rank_map ||= self.all_user.sort {|a, b|
       a_ra = (a.total_rank + a.average_rank)/2.to_f

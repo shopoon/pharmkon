@@ -12,6 +12,4 @@ class ApplicationController < ActionController::Base
       @user = current_user
     end
   end
-
-  PER_PAGE = 20
 end
