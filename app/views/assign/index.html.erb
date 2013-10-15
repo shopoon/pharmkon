@@ -15,8 +15,8 @@
         <% if user.nil? %>
           <td></td>
         <% else %>
-          <% class_name = user.department == 1 ? "label-success" : "label-warning" %>
-          <td class="<%= class_name %>"><%= group.users[n].try(:name) rescue nil %></td>
+          <% class_name = user.department == 1 ? "yakka" : "yaku" %>
+          <td><span class="<%= class_name %>"><%= user.name %></span></td>
         <% end %>
       <% end %>
     </tr>
