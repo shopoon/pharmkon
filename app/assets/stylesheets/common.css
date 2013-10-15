@@ -3,10 +3,16 @@
 }
 
 span.yakka {
+<<<<<<< HEAD
   font-weight: bold;
   color: blue;
 }
 span.yaku {
   font-weight: bold;
+=======
+  color: blue;
+}
+span.yaku {
+>>>>>>> a51f984b77e6aa66661e94dcde2c1c1c2dd2ebc7
   color: green;
 }

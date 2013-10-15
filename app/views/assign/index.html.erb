@@ -15,8 +15,12 @@
         <% if user.nil? %>
           <td></td>
         <% else %>
+<<<<<<< HEAD
           <% class_name = user.department == 1 ? "yakka" : "yaku" %>
           <td><span class="<%= class_name %>"><%= user.name %></span></td>
+=======
+          <td><span class="<%= user.department_name %>"><%= user.name %></span></td>
+>>>>>>> a51f984b77e6aa66661e94dcde2c1c1c2dd2ebc7
         <% end %>
       <% end %>
     </tr>
