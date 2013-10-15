@@ -1,6 +1,14 @@
 <table class="table table-striped table-bordered table-hover">
   <thead>
     <tr>
+      <td>学部平均点</td>
+      <td><%= @average_map[:all] %></td>
+      <td>薬科学科平均点</td>
+      <td><%= @average_map[:yakka] %></td>
+      <td>薬学科平均点</td>
+      <td><%= @average_map[:yaku] %></td>
+    </tr>
+    <tr>
       <th>順位</th>
       <th>名前</th>
       <th>合計点</th>
@@ -25,16 +33,6 @@
       </tr>
     <% end %>
   </tbody>
-  <tfoot>
-    <tr>
-      <td>学部平均点</td>
-      <td><%= @average_map[:all] %></td>
-      <td>薬科学科平均点</td>
-      <td><%= @average_map[:yakka] %></td>
-      <td>薬学科平均点</td>
-      <td><%= @average_map[:yaku] %></td>
-    </tr>
-  </tfoot>
 </table>
 
 <div class="muted">
