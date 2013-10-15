@@ -11,7 +11,13 @@
     <tr>
       <td><%= link_to group.labo.name, assign_path(group.labo.id) %></td>
       <% (0..3).each do |n| %>
-        <td><%= group.users[n].try(:name) rescue nil %></td>
+        <% user = group.users[n] %>
+        <% if user.nil? %>
+          <td></td>
+        <% else %>
+          <% class_name = user.department == 1 ? "label-success" : "label-warning" %>
+          <td class="<%= class_name %>"><%= group.users[n].try(:name) rescue nil %></td>
+        <% end %>
       <% end %>
     </tr>
   <% end %>
