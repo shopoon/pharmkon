@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   #
   validates :student_id, length: { is: 4 }
   validates :total, :presence => true
-  validates :count, :presence => true, :greater_than => 1
+  validates :count, :presence => true, :numericality => {:greater_than => 1}
 
   def self.users_orderd_by_rank
     @users_rank_map ||= self.all_user.sort {|a, b|
@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def self.all_user
-    @users ||= User.all
+    @users ||= User.all.reject {|user| user.count <= 0}
   end
 
   def apply
