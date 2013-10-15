@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   end
 
   def total_rank
-    @users_total_map ||= self.class.all_user.select('id, total').order('total').map{|user| user.total}
+    @users_total_map ||= self.class.all_user.map{|user| user.total}
     return (@users_total_map.reverse.index(self.total) + 1) rescue nil
   end
 
