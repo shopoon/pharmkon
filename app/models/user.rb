@@ -69,12 +69,12 @@ class User < ActiveRecord::Base
   end
  
   def average_rank
-    @users_average_map ||= User.all.order(:average).map{|user| user.average}
+    @users_average_map ||= User.order(:average).map{|user| user.average}
     return (@users_average_map.reverse.index(self.average) + 1) rescue nil
   end
 
   def total_rank
-    @users_total_map ||= User.all.order(:total).map{|user| user.total}
+    @users_total_map ||= User.order(:total).map{|user| user.total}
     return (@users_total_map.reverse.index(self.total) + 1) rescue nil
   end
 
