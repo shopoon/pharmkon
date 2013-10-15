@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :count, :presence => true
 
   def self.users_orderd_by_rank
-    @users_rank_map ||= self.all_users.sort {|a, b|
+    @users_rank_map ||= self.all_user.sort {|a, b|
       a_ra = (a.total_rank + a.average_rank)/2.to_f
       b_ra = (b.total_rank + b.average_rank)/2.to_f
       if a_ra != b_ra
@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     return @users_rank_map
   end
 
-  def self.all_users
+  def self.all_user
     @users ||= User.all
   end
 
