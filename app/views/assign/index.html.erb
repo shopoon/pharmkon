@@ -11,16 +11,7 @@
     <tr>
       <td><%= link_to group.labo.name, assign_path(group.labo.id) %></td>
       <% (0..3).each do |n| %>
-        <% user = group.users[n] %>
-        <% if user.nil? %>
-          <td></td>
-        <% else %>
-          <% if user.department == 1 %>
-            <td class="btn-success"><%= group.users[n].try(:name) rescue nil %></td>
-          <% else %>
-            <td class="btn-warning"><%= group.users[n].try(:name) rescue nil %></td>
-          <% end %>
-        <% end %>
+        <td><%= group.users[n].try(:name) rescue nil %></td>
       <% end %>
     </tr>
   <% end %>
