@@ -23,15 +23,15 @@ class User < ActiveRecord::Base
   end
 
   after_save do
-    @users_rank_map = nil
-    @users = nil
-    @users_rank_ids = nil
-    @users_average_map = nil
-    @users_total_map = nil
+   @@users_rank_map = nil
+   @@users = nil
+   @@users_rank_ids = nil
+   @@users_average_map = nil
+   @@users_total_map = nil
   end
 
   def self.users_orderd_by_rank
-    @users_rank_map ||= self.all_user.sort {|a, b|
+    @@users_rank_map ||= self.all_user.sort {|a, b|
       a_ra = (a.total_rank + a.average_rank)/2.to_f
       b_ra = (b.total_rank + b.average_rank)/2.to_f
       if a_ra != b_ra
@@ -40,11 +40,11 @@ class User < ActiveRecord::Base
         a.average_rank <=> b.average_rank
       end
     }
-    return @users_rank_map
+    return @@users_rank_map
   end
 
   def self.all_user
-    @users = User.all
+    @@users ||= User.all
   end
 
   def apply
@@ -52,8 +52,8 @@ class User < ActiveRecord::Base
   end
 
   def rank
-    @users_rank_ids ||= self.class.users_orderd_by_rank.map(&:id)
-    return (@users_rank_ids.index(self.id) + 1) rescue nil
+    @@users_rank_ids ||= self.class.users_orderd_by_rank.map(&:id)
+    return (@@users_rank_ids.index(self.id) + 1) rescue nil
   end
 
   def email_required?
@@ -69,13 +69,13 @@ class User < ActiveRecord::Base
   end
  
   def average_rank
-    @users_average_map ||= User.order(:average).map{|user| user.average}
-    return (@users_average_map.reverse.index(self.average) + 1) rescue nil
+    @@users_average_map ||= User.order(:average).map{|user| user.average}
+    return (@@users_average_map.reverse.index(self.average) + 1) rescue nil
   end
 
   def total_rank
-    @users_total_map ||= User.order(:total).map{|user| user.total}
-    return (@users_total_map.reverse.index(self.total) + 1) rescue nil
+    @@users_total_map ||= User.order(:total).map{|user| user.total}
+    return (@@users_total_map.reverse.index(self.total) + 1) rescue nil
   end
 
   DEPARTMENT = {
