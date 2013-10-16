@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   end
 
   def self.all_user
-    @users ||= User.all
+    @users = User.all
   end
 
   def apply
