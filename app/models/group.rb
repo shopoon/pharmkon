@@ -57,12 +57,13 @@ class Group
 
   def self.create
     users = User.users_orderd_by_rank
-    ['first', 'second', 'third'].each do |order|
-      users.each do |user|
+    users.each do |user|
+      ['first', 'second', 'third'].each do |order|
         labo_id = user.apply.__send__(order)
         next if labo_id.nil?
         group = @groups[labo_id]
-        group.add(user) if !group.nil?
+        next if group.nil?
+        break if group.add(user)
       end
     end
   end
