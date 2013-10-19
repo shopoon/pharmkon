@@ -16,7 +16,7 @@
           <td></td>
         <% else %>
           <% class_name = user.department == 1 ? "yakka" : "yaku" %>
-          <td><span class="<%= class_name %>"><%= user.name %></span></td>
+          <td><span class="<%= class_name %>"><%= link_to user.name, student_path(user.id) %></span></td>
         <% end %>
       <% end %>
     </tr>
