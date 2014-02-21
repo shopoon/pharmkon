@@ -2,6 +2,7 @@
 ruby '2.0.0'
 source 'https://rubygems.org'
 
+gem 'heroku'
 gem 'rails'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
