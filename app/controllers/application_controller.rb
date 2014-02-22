@@ -12,4 +12,16 @@ class ApplicationController < ActionController::Base
       @user = current_user
     end
   end
+
+# protected
+#
+# def devise_parameter_sanitizer
+#   if resource_class == User
+#     User::ParameterSanitizer.new(User, :user, params)
+#   elsif resource_class == Admin::User
+#     Admin::User::ParameterSanitizer.new(Admin::User, :admin_user, params)
+#   else
+#     super
+#   end
+# end
 end
