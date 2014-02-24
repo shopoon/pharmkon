@@ -1,4 +1,5 @@
 class Labolatory < ActiveRecord::Base
+  attr_accessible :name, :yaku, :yakka, :total
 
   def department_amount(yaku_or_yakka)
     case yaku_or_yakka

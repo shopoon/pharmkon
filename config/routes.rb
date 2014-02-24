@@ -24,6 +24,7 @@ PharmkonR::Application.routes.draw do
   end
   namespace :admin do
     resources :top
+    resources :labolatories
   end
 
   # The priority is based upon order of creation:
