@@ -6,13 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#u=User.find_or_create_by_id(1);u.name="test1";u.student_id="1111";u.department=1;u.password="11111111";u.total=100;u.count=1;u.save
-#u=User.find_or_create_by_id(2);u.name="test2";u.student_id="2222";u.department=1;u.password="11111111";u.total=87;u.count=1;u.save
-#u=User.find_or_create_by_id(3);u.name="test3";u.student_id="3333";u.department=1;u.password="11111111";u.total=50;u.count=1;u.save
-#u=User.find_or_create_by_id(4);u.name="test4";u.student_id="4444";u.department=2;u.password="11111111";u.total=92;u.count=1;u.save
-#u=User.find_or_create_by_id(5);u.name="test5";u.student_id="5555";u.department=2;u.password="11111111";u.total=67;u.count=1;u.save
-#u=User.find_or_create_by_id(6);u.name="test6";u.student_id="6666";u.department=2;u.password="11111111";u.total=88;u.count=1;u.save
-
 l=Labolatory.find_or_create_by_id(1);l.name='薬品合成化学（高須）';l.yaku=1;l.yakka=4;l.total=4;l.save
 l=Labolatory.find_or_create_by_id(2);l.name='薬品分子化学（竹本）';l.yaku=1;l.yakka=4;l.total=4;l.save
 l=Labolatory.find_or_create_by_id(3);l.name='薬品資源学（伊藤美）';l.yaku=1;l.yakka=2;l.total=2;l.save
