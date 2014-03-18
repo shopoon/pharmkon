@@ -1,0 +1,29 @@
+<%- model_class = User -%>
+<div class="page-header">
+  <h1>ユーザ</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong>名前:</strong></dt>
+  <dd><%= @student.name %></dd>
+  <dt><strong>学科:</strong></dt>
+  <dd><%= @student.department_name %></dd>
+  <dt><strong>合計点:</strong></dt>
+  <dd><%= @student.total %>点</dd>
+  <dt><strong>平均点:</strong></dt>
+  <dd><%= @student.average %>点</dd>
+  <dt><strong>取得単位数:</strong></dt>
+  <dd><%= @student.count %>個</dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              admin_students_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_admin_student_path(@student), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              admin_student_path(@student),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
