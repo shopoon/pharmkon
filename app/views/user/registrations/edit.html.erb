@@ -19,16 +19,6 @@
 
   <div><%= f.label "取得コマ数" %>
   <%= f.number_field :count, :max => 40, :min => 0 %></div>
-  <div><%= f.label "新しいパスワード" %>
-  <%= f.password_field :password, :autocomplete => "off" %>
-  <span class="help-inline" style="font-size: small; color: gray;">変更しない場合は空白にしておいてください</span>
-</div>
-
-  <div><%= f.label "パスワード確認" %>
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.label "現在のパスワード" %>
-  <%= f.password_field :current_password %></div>
 
   <div><%= f.submit "更新", :class => "btn btn-primary" %></div>
 <% end %>
