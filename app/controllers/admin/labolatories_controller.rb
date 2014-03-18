@@ -9,7 +9,7 @@ class Admin::LabolatoriesController < Admin::ApplicationController
   end
 
   def create
-    @labolatory.new(params[:labolatory])
+    @labolatory = Labolatory.new(params[:labolatory])
     if @labolatory.save
       return redirect_to :action => :index, :notice => "作成に成功しました"
     else
