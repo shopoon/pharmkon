@@ -23,6 +23,6 @@ class Admin::StudentsController < Admin::ApplicationController
   def destroy
     @student = User.find(params[:id])
     @student.destroy
-    return redirect_to :action => :index, :notice => "削除に以降しました"
+    return redirect_to :action => :index, :notice => "削除に成功しました"
   end
 end
