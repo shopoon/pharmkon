@@ -23,7 +23,11 @@ PharmkonR::Application.routes.draw do
     root :to => "admin/top#index", :as => "admin_user_root_path"
   end
   namespace :admin do
-    resources :top
+    resources :top, only: [:index] do
+      collection do
+        get :force_rank
+      end
+    end
     resources :labolatories
     resources :students
   end

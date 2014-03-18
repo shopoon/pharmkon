@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140221000002) do
+ActiveRecord::Schema.define(:version => 20140318090229) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "name",                :default => "", :null => false
@@ -30,12 +30,31 @@ ActiveRecord::Schema.define(:version => 20140221000002) do
     t.integer "third"
   end
 
+  create_table "information", :force => true do |t|
+    t.string   "body",       :default => "",   :null => false
+    t.datetime "posted_at",                    :null => false
+    t.boolean  "enable",     :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
   create_table "labolatories", :force => true do |t|
     t.string  "name"
     t.integer "yaku",  :default => 0
     t.integer "yakka", :default => 0
     t.integer "total", :default => 0
   end
+
+  create_table "settings", :force => true do |t|
+    t.string   "var",                      :null => false
+    t.text     "value"
+    t.integer  "thing_id"
+    t.string   "thing_type", :limit => 30
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "settings", ["thing_type", "thing_id", "var"], :name => "index_settings_on_thing_type_and_thing_id_and_var", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "encrypted_password",     :default => "", :null => false

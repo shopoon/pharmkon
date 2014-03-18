@@ -107,6 +107,8 @@ GEM
       activesupport (= 3.2.14)
       bundler (~> 1.0)
       railties (= 3.2.14)
+    rails-settings-cached (0.2.4)
+      rails (>= 3.0.0)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
@@ -181,6 +183,7 @@ DEPENDENCIES
   less-rails
   pg
   rails
+  rails-settings-cached (= 0.2.4)
   rails_12factor
   sass-rails (~> 3.2.3)
   sqlite3

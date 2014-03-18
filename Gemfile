@@ -8,6 +8,7 @@ gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'foreman'
 gem 'kaminari'
+gem "rails-settings-cached", "0.2.4"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
