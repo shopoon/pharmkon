@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :rememberable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :student_id, :password, :password_confirmation, :remember_me, :department, :email, :total, :count, :average
+  attr_accessible :name, :student_id, :password, :password_confirmation, :remember_me, :department, :email, :total, :count, :average, :force_rank
   # attr_accessible :title, :body
   #
   validates :student_id, length: { is: 4 }
@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
   end
 
   after_save do
+    User.init_class_instance
+  end
+
+  def self.init_class_instance
    @@users_rank_map = nil
    @@users = nil
    @@users_rank_ids = nil
@@ -31,15 +35,19 @@ class User < ActiveRecord::Base
   end
 
   def self.users_orderd_by_rank
-    @@users_rank_map ||= self.all_user.sort {|a, b|
-      a_ra = (a.total_rank + a.average_rank)/2.to_f
-      b_ra = (b.total_rank + b.average_rank)/2.to_f
-      if a_ra != b_ra
-        a_ra <=> b_ra
-      else
-        a.average_rank <=> b.average_rank
-      end
-    }
+    if PharmkonSetting.force_rank?
+      @@users_rank_map ||= self.order(:force_rank).all
+    else
+      @@users_rank_map ||= self.all_user.sort {|a, b|
+        a_ra = (a.total_rank + a.average_rank)/2.to_f
+        b_ra = (b.total_rank + b.average_rank)/2.to_f
+        if a_ra != b_ra
+          a_ra <=> b_ra
+        else
+          a.average_rank <=> b.average_rank
+        end
+      }
+    end
     return @@users_rank_map
   end
 
@@ -52,8 +60,12 @@ class User < ActiveRecord::Base
   end
 
   def rank
-    @@users_rank_ids ||= self.class.users_orderd_by_rank.map(&:id)
-    return (@@users_rank_ids.index(self.id) + 1) rescue nil
+    if PharmkonSetting.force_rank?
+      return self.force_rank
+    else
+      @@users_rank_ids ||= self.class.users_orderd_by_rank.map(&:id)
+      return (@@users_rank_ids.index(self.id) + 1) rescue nil
+    end
   end
 
   def email_required?

@@ -20,6 +20,11 @@
   <div><%= f.label "取得コマ数" %>
   <%= f.number_field :count, :max => 40, :min => 0 %></div>
 
+  <% if PharmkonSetting.force_rank? %>
+    <div><%= f.label "順位" %>
+    <%= f.number_field :force_rank, :min => 1, :max => 200 %></div>
+  <% end %>
+
   <div><%= f.submit "更新", :class => "btn btn-primary" %></div>
 <% end %>
 
