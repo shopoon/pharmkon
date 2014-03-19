@@ -3,25 +3,25 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label "学生証番号" %>
+  <div><%= f.label :student_id %>
   <%= f.text_field :student_id, :autofocus => true %>
   <span class="help-inline" style="font-size: small; color: gray;">下4桁を入力してください</span>
   </div>
 
-  <div><%= f.label "名前" %>
+  <div><%= f.label :name %>
   <%= f.text_field :name %></div>
 
-  <div><%= f.label "学科" %>
+  <div><%= f.label :department %>
   <%= f.select :department, options_for_select(User::DEPARTMENT) %></div>
 
-  <div><%= f.label "合計点" %>
+  <div><%= f.label :total %>
   <%= f.number_field :total, :max => 9999, :min => 0 %></div>
 
-  <div><%= f.label "取得コマ数" %>
+  <div><%= f.label :count %>
   <%= f.number_field :count, :max => 40, :min => 0 %></div>
 
   <% if PharmkonSetting.force_rank? %>
-    <div><%= f.label "順位" %>
+    <div><%= f.label :force_rank %>
     <%= f.number_field :force_rank, :min => 1, :max => 200 %></div>
   <% end %>
 

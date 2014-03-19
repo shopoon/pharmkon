@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :count, :presence => true, :numericality => {:greater_than => 1}
   validates :average, :presence => true
 
-  before_validation do
+  before_save do
     if self.total > 0 && self.count > 0
       self.average = (self.total.to_f/self.count.to_f).round(2)
     else
