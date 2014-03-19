@@ -16,26 +16,28 @@
     <th>順位</th>
     <td><%= @user.rank %>位</td>
   </tr>
-  <tr>
-    <th>合計点順位</th>
-    <td><%= @user.total_rank %>位</td>
-  </tr>
-  <tr>
-    <th>平均点順位</th>
-    <td><%= @user.average_rank %>位</td>
-  </tr>
-  <tr>
-    <th>合計点</th>
-    <td><%= @user.total %></td>
-  </tr>
-  <tr>
-    <th>平均点</th>
-    <td><%= @user.average %></td>
-  </tr>
-  <tr>
-    <th>取得コマ数</th>
-    <td><%= @user.count %></td>
-  </tr>
+  <% unless PharmkonSetting.force_rank? %>
+    <tr>
+      <th>合計点順位</th>
+      <td><%= @user.total_rank %>位</td>
+    </tr>
+    <tr>
+      <th>平均点順位</th>
+      <td><%= @user.average_rank %>位</td>
+    </tr>
+    <tr>
+      <th>合計点</th>
+      <td><%= @user.total %></td>
+    </tr>
+    <tr>
+      <th>平均点</th>
+      <td><%= @user.average %></td>
+    </tr>
+    <tr>
+      <th>取得コマ数</th>
+      <td><%= @user.count %></td>
+    </tr>
+  <% end %>
   <tr>
     <th>第一希望</th>
     <td><%= @user.apply.first.nil? ? "未記入" : @user.apply.first_labo.name %></td>

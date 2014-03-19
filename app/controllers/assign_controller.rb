@@ -1,4 +1,5 @@
 class AssignController < ApplicationController
+  before_filter :validates_user_attirbutes_exist
   
   def index
     Group.reload

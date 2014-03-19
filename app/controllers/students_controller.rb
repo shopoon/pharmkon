@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  before_filter :validates_user_attirbutes_exist
 
   def index
     @users = User.users_orderd_by_rank   

@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   require "pp"
-  protect_from_forgery
 
   http_basic_authenticate_with :name => "name", :password => "password" if Rails.env.staging?
 
@@ -12,6 +11,13 @@ class ApplicationController < ActionController::Base
       @user = current_user
     end
   end
+
+  def validates_user_attirbutes_exist
+    if (PharmkonSetting.force_rank? && current_user.force_rank.nil?) || (!PharmkonSetting.force_rank? && (current_user.total.nil? || current_user.count.nil?))
+      return render unable_user_attributes_top_index_path
+    end
+  end
+
 
 # protected
 #

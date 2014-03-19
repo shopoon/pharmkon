@@ -18,6 +18,11 @@ PharmkonR::Application.routes.draw do
   end
 
   resources :students, only: [:index, :show]
+  resources :top do
+    collection do
+      get :unable_user_attributes
+    end
+  end
 
   scope "admin" do
     root :to => "admin/top#index", :as => "admin_user_root_path"
