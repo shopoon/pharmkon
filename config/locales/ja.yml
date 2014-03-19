@@ -199,3 +199,20 @@ ja:
   activerecord:
     errors:
       <<: *errors
+    attributes:
+      user:
+        name: 名前
+        student_id: 学籍番号
+        department: 学科
+        password: パスワード
+        password_confirmation: パスワード確認
+        total: 合計点
+        count: 取得科目数
+        average: 平均点
+        force_rank: 順位
+      admin/user:
+        name: 名前
+        password: パスワード
+        password_confirmation: パスワード確認
+
+
