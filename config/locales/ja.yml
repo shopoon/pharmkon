@@ -134,6 +134,15 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+    titles:
+      new: 新規作成
+      edit: 編集
+    actions: リンク
+    links:
+      new: 新規
+      edit: 編集
+      destroy: 削除
+      confirm: 削除します。本当によろしいですか？
   number:
     currency:
       format:
@@ -214,5 +223,8 @@ ja:
         name: 名前
         password: パスワード
         password_confirmation: パスワード確認
-
-
+      labolatory:
+        name: 研究室名
+        total: 合計定員
+        yaku: 薬学科定員
+    　　yakka: 薬科学科定員
