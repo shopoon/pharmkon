@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   validates :student_id, length: { is: 4 }
   validates :total, :presence => true
   validates :count, :presence => true, :numericality => {:greater_than => 1}
-  validates :average, :presence => true
 
   before_save do
     if self.total > 0 && self.count > 0
