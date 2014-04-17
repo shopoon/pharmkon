@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
 
   after_save do
     User.init_class_instance
+    Statistics.init_class_instance
   end
 
   def self.init_class_instance

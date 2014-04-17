@@ -1,4 +1,17 @@
 class Statistics
+  def self.init_class_instance
+    @average_map = nil
+    @average = nil
+    @total = nil
+    @count = nil
+    @yakka_average = nil
+    @yaku_average = nil
+    @yakka_total = nil
+    @yaku_total = nil
+    @yakka_count = nil
+    @yaku_count = nil
+  end
+
   def self.average_map
     @average_map ||= {:all => self.average, :yakka => self.yakka_average, :yaku => self.yaku_average}
   end
