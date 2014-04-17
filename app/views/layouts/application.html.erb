@@ -40,6 +40,7 @@
           <ul class="nav">
             <li class="<%= controller_name == "students" ? "active": "" %>"><%= link_to "成績関連", controller: "/students" %></li>
             <li class="<%= controller_name == "assign" ? "active": "" %>"><%= link_to "研究室関連", controller: "/assign" %></li>
+            <li class="<%= controller_name == "assign" ? "active": "" %>"><%= link_to "ヘルプ", controller: "/helps" %></li>
           </ul>
           <p class="navbar-text pull-right">
             <% if user_signed_in? %>
