@@ -25,4 +25,9 @@ class Admin::StudentsController < Admin::ApplicationController
     @student.destroy
     return redirect_to :action => :index, :notice => "削除に成功しました"
   end
+
+  def destroy_all
+    User.destroy_all
+    return redirect_to :action => :index
+  end
 end

@@ -34,7 +34,11 @@ PharmkonR::Application.routes.draw do
       end
     end
     resources :labolatories
-    resources :students
+    resources :students do
+      collection do
+        delete :destroy_all
+      end
+    end
   end
 
   # The priority is based upon order of creation:
