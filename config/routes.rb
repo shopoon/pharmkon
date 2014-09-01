@@ -8,7 +8,7 @@ PharmkonR::Application.routes.draw do
     :registrations => "user/registrations",
   }
 
-  root :to => "students#index", :as => "user_root_path"
+  root :to => "helps#index", :as => "user_root_path"
 
   resources :assign, only: [:index, :show] do
     collection do
