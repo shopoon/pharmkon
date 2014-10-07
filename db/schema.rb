@@ -30,14 +30,6 @@ ActiveRecord::Schema.define(:version => 20140319064654) do
     t.integer "third"
   end
 
-  create_table "information", :force => true do |t|
-    t.string   "body",       :default => "",   :null => false
-    t.datetime "posted_at",                    :null => false
-    t.boolean  "enable",     :default => true
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-  end
-
   create_table "labolatories", :force => true do |t|
     t.string  "name"
     t.integer "yaku",  :default => 0

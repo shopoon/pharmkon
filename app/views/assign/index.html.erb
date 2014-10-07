@@ -6,11 +6,12 @@
       <th>２人目</th>
       <th>３人目</th>
       <th>４人目</th>
+      <th>５人目</th>
   </thead>
   <% @groups.each do |_, group| %>
     <tr>
       <td><%= link_to group.labo.name + "(#{group.labo.yakka}:#{group.labo.yaku})", assign_path(group.labo.id) %></td>
-      <% (0..3).each do |n| %>
+      <% (0..4).each do |n| %>
         <% user = group.users[n] %>
         <% if user.nil? %>
           <td></td>
