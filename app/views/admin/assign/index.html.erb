@@ -1,0 +1,26 @@
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>研究室</th>
+      <th>１人目</th>
+      <th>２人目</th>
+      <th>３人目</th>
+      <th>４人目</th>
+      <th>５人目</th>
+  </thead>
+  <% @groups.each do |_, group| %>
+    <tr>
+      <td><%= link_to group.labo.name + "(#{group.labo.yakka}:#{group.labo.yaku})", assign_path(group.labo.id) %></td>
+      <% (0..4).each do |n| %>
+        <% user = group.users[n] %>
+        <% if user.nil? %>
+          <td></td>
+        <% else %>
+          <% class_name = user.department == 1 ? "yakka" : "yaku" %>
+          <td><span class="<%= class_name %>"><%= user.name %></span></td>
+        <% end %>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+

@@ -41,6 +41,7 @@ PharmkonR::Application.routes.draw do
         delete :destroy_all
       end
     end
+    resources :assign, only: [:index]
   end
 
   # The priority is based upon order of creation:
