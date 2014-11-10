@@ -10,7 +10,7 @@
   </thead>
   <% @groups.each do |_, group| %>
     <tr>
-      <td><%= link_to group.labo.name + "(#{group.labo.yakka}:#{group.labo.yaku})", assign_path(group.labo.id) %></td>
+      <td><%= link_to group.labo.name + "(#{group.labo.yakka}:#{group.labo.yaku})", admin_assign_path(group.labo.id) %></td>
       <% (0..4).each do |n| %>
         <% user = group.users[n] %>
         <% if user.nil? %>
