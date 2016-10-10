@@ -49,6 +49,7 @@ class Group
   private
 
   def self.init
+    print Labolatory.all
     Labolatory.all.each do |labo|
       @groups[labo.id] = Group.get(labo)
     end
