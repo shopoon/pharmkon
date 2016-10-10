@@ -49,6 +49,9 @@ class Group
   private
 
   def self.init
+    Labolatory.all.each do |labo|
+      @groups[labo.id] = Group.get(labo)
+    end
     @@users = []
     @groups.each do |_, group|
       group.users = []
@@ -76,7 +79,4 @@ class Group
     true
   end
 
-  Labolatory.all.each do |labo|
-    @groups[labo.id] = Group.get(labo)
-  end
 end
