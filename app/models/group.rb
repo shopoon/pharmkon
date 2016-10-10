@@ -49,11 +49,11 @@ class Group
   private
 
   def self.init
-    print Labolatory.all
+    @groups = {}
+    @@users = []
     Labolatory.all.each do |labo|
       @groups[labo.id] = Group.get(labo)
     end
-    @@users = []
     @groups.each do |_, group|
       group.users = []
     end
